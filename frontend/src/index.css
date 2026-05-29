@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #000000;
+    --primary: #e10600;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #1a1a1a;
+    border-radius: 3px;
+  }
+}
