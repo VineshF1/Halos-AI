@@ -38,7 +38,7 @@ FastAPI Backend (Render)
       │
       └── RAG Agent
             ├── NVIDIA Embeddings
-            ├── pgvector Search
+            ├── PostgreSql pgvector 
             └── DeepSeek V4
 ```
 
