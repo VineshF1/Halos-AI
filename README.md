@@ -6,7 +6,7 @@ It uses:
 
 - **RAG (Retrieval-Augmented Generation)** for Formula 1 knowledge and trivia
 - **Text-to-SQL** for race statistics and historical data
-- **DeepSeek V4** for natural language understanding and response generation
+- **DeepSeek V4 Flash** for natural language understanding and response generation
 
 ---
 
