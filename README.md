@@ -59,7 +59,7 @@ flowchart LR
 - Uvicorn
 
 ### AI & Data
-- DeepSeek V4 (OpenRouter)
+- DeepSeek V4 Flash(OpenRouter)
 - NVIDIA NV-Embed-v1
 - PostgreSQL (Supabase)
 - pgvector
