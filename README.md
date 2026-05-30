@@ -25,6 +25,7 @@ It uses:
 
 ## 🏗️ Architecture
 
+```mermaid
 flowchart TD
 
     subgraph Ingestion Pipeline
@@ -54,6 +55,7 @@ flowchart TD
 
     F -. Knowledge Retrieval .-> K
 
+```
 ---
 
 ## 🛠️ Tech Stack
