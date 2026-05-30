@@ -26,34 +26,21 @@ It uses:
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart TD
+flowchart LR
 
-    subgraph Ingestion Pipeline
-        A[Wikipedia URLs]
-        B[Playwright Scraper]
-        C[Extract Content]
-        D[Chunk Documents]
-        E[NVIDIA NV-Embed-v1]
-        F[Supabase + pgvector]
+    A[Wikipedia Pages<br/>68 URLs] --> B[Playwright Scraper]
+    B --> C[Chunk Documents<br/>1513 Chunks]
+    C --> D[NVIDIA NV-Embed-v1]
+    D --> E[Supabase + pgvector]
 
-        A --> B --> C --> D --> E --> F
-    end
+    F[User Question] --> G[FastAPI Backend]
+    G --> H[Query Classifier]
+    H --> I[NVIDIA NV-Embed-v1]
+    I --> E
 
-    subgraph Query Pipeline
-        G[User Question]
-        H[FastAPI Backend]
-        I[Query Classifier]
-        J[NVIDIA NV-Embed-v1]
-        K[Vector Search]
-        L[Relevant Chunks]
-        M[Context Building]
-        N[DeepSeek V4 via OpenRouter]
-        O[Final Answer]
-
-        G --> H --> I --> J --> K --> L --> M --> N --> O
-    end
-
-    F -. Knowledge Retrieval .-> K
+    E --> J[Retrieve Relevant Chunks]
+    J --> K[DeepSeek V4 Flash<br/>via OpenRouter]
+    K --> L[Final Answer]
 
 ```
 ---
