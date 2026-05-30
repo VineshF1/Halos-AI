@@ -25,22 +25,34 @@ It uses:
 
 ## 🏗️ Architecture
 
-```text
-Browser (Vercel)
-      │
-      ▼
-FastAPI Backend (Render)
-      │
-      ├── Query Classifier
-      │
-      ├── SQL Agent
-      │     └── Supabase Database
-      │
-      └── RAG Agent
-            ├── NVIDIA Embeddings
-            ├── PostgreSql pgvector 
-            └── DeepSeek V4
-```
+flowchart TD
+
+    subgraph Ingestion Pipeline
+        A[Wikipedia URLs]
+        B[Playwright Scraper]
+        C[Extract Content]
+        D[Chunk Documents]
+        E[NVIDIA NV-Embed-v1]
+        F[Supabase + pgvector]
+
+        A --> B --> C --> D --> E --> F
+    end
+
+    subgraph Query Pipeline
+        G[User Question]
+        H[FastAPI Backend]
+        I[Query Classifier]
+        J[NVIDIA NV-Embed-v1]
+        K[Vector Search]
+        L[Relevant Chunks]
+        M[Context Building]
+        N[DeepSeek V4 via OpenRouter]
+        O[Final Answer]
+
+        G --> H --> I --> J --> K --> L --> M --> N --> O
+    end
+
+    F -. Knowledge Retrieval .-> K
 
 ---
 
